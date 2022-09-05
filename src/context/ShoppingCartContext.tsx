@@ -1,4 +1,5 @@
 import { useContext, createContext, ReactNode, useState } from 'react'
+import { ShoppingCart } from '../components/ShoppingCart'
 
 interface ShoppingCartContext {
   openCart: () => void
@@ -89,9 +90,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         removeFromCart,
         cartItems,
         cartQuantity,
+        openCart,
+        closeCart,
       }}
     >
       {children}
+      <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   )
 }
